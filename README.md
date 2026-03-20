@@ -80,7 +80,13 @@ func main() {
 
 ## Resources
 
-  - [Best practices for using the REST API](https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api)
+  - [GitHub REST API documentation](https://docs.github.com/en/rest)
+    - [Best practices for using the REST API](https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api)
+  - [GitHub GraphQL API documentation](https://docs.github.com/en/graphql)
+    - [Using pagination in the GraphQL API](https://docs.github.com/en/graphql/guides/using-pagination-in-the-graphql-api)
+  - [GitHub Apps documentation](https://docs.github.com/en/apps)
+    - [About creating GitHub Apps](https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps)
+    - [Registering a GitHub App](https://docs.github.com/en/apps/creating-github-apps/registering-a-github-app/registering-a-github-app)
 
 
 [godoc-url]: https://pkg.go.dev/github.com/neatplatform/go-github
