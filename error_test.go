@@ -68,7 +68,7 @@ func TestPrimaryRateLimitError(t *testing.T) {
 					},
 					Status:           "403",
 					Message:          "API rate limit exceeded",
-					DocumentationURL: "https://developer.github.com/v3/#rate-limiting",
+					DocumentationURL: "https://docs.github.com/en/rest#rate-limiting",
 				},
 				Rate: Rate{
 					Limit:     5000,
@@ -120,7 +120,7 @@ func TestSecondaryRateLimitError(t *testing.T) {
 					},
 					Status:           "403",
 					Message:          "You have triggered an abuse detection mechanism",
-					DocumentationURL: "https://developer.github.com/v3/#abuse-rate-limits",
+					DocumentationURL: "https://docs.github.com/en/rest#rate-limiting",
 				},
 				Rate: Rate{
 					Limit:     5000,

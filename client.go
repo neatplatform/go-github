@@ -27,8 +27,8 @@ const (
 )
 
 const (
-	mediaJSON   = "application/json"
-	mediaTypeV3 = "application/vnd.github+json"
+	mediaJSON = "application/json"
+	mediaType = "application/vnd.github+json"
 )
 
 var (
@@ -166,7 +166,7 @@ func (c *Client) NewRequest(ctx context.Context, method, url string, body any) (
 	}
 
 	req.Header.Set(headerUserAgent, userAgent)
-	req.Header.Set(headerAccept, mediaTypeV3)
+	req.Header.Set(headerAccept, mediaType)
 
 	if c.authToken != "" {
 		req.Header.Set(headerAuth, fmt.Sprintf("Bearer %s", c.authToken))
@@ -246,7 +246,7 @@ func (c *Client) NewUploadRequest(ctx context.Context, url, filepath string) (*h
 
 	req.ContentLength = stat.Size()
 	req.Header.Set(headerUserAgent, userAgent)
-	req.Header.Set(headerAccept, mediaTypeV3)
+	req.Header.Set(headerAccept, mediaType)
 	req.Header.Set(headerContentType, mediaType)
 
 	if c.authToken != "" {

@@ -509,7 +509,7 @@ func TestClient_Do(t *testing.T) {
 					`{
 						"status": "403",
 						"message": "API rate limit exceeded",
-						"documentation_url": "https://developer.github.com/v3/#rate-limiting"
+						"documentation_url": "https://docs.github.com/en/rest#rate-limiting"
 					}`,
 				},
 			},
@@ -533,7 +533,7 @@ func TestClient_Do(t *testing.T) {
 					`{
 						"status": "403",
 						"message": "You have triggered an abuse detection mechanism",
-						"documentation_url": "https://developer.github.com/v3/#abuse-rate-limits"
+						"documentation_url": "https://docs.github.com/en/rest#rate-limiting"
 					}`,
 				},
 			},
