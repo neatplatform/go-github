@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/neatplatform/go-github"
 )
@@ -31,16 +32,18 @@ type (
 
 	// RateLimit represents the GraphQL API rate limit information.
 	RateLimit struct {
-		Limit     int    `json:"limit"`
-		Remaining int    `json:"remaining"`
-		ResetAt   string `json:"resetAt"` // RFC3339
-		Cost      int    `json:"cost"`
+		Limit     int       `json:"limit"`
+		Remaining int       `json:"remaining"`
+		ResetAt   time.Time `json:"resetAt"` // RFC3339
+		Cost      int       `json:"cost"`
 	}
 
 	// PageInfo represents the pagination information for GraphQL queries.
 	PageInfo struct {
-		EndCursor   string `json:"endCursor"`
-		HasNextPage bool   `json:"hasNextPage"`
+		StartCursor     string `json:"startCursor"`
+		EndCursor       string `json:"endCursor"`
+		HasNextPage     bool   `json:"hasNextPage"`
+		HasPreviousPage bool   `json:"hasPreviousPage"`
 	}
 )
 
