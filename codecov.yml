@@ -35,4 +35,5 @@ comment: false
 
 # https://docs.codecov.com/docs/ignoring-paths
 ignore:
+  - "**/example/**"
   - "**/examples/**"
