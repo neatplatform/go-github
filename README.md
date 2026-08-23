@@ -14,28 +14,28 @@ A simple Go client for [GitHub REST API](https://docs.github.com/en/rest) and [G
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
+  "context"
+  "fmt"
+  "os"
 
-	"github.com/neatplatform/go-github"
+  "github.com/neatplatform/go-github"
 )
 
 func main() {
-	authToken := os.Getenv("GITHUB_TOKEN")
-	client := github.NewClient(authToken)
+  authToken := os.Getenv("GITHUB_TOKEN")
+  client := github.NewClient(authToken)
 
-	commits, resp, err := client.Repo("octocat", "Hello-World").Commits(context.Background(), 50, 1)
-	if err != nil {
-		panic(err)
-	}
+  commits, resp, err := client.Repo("octocat", "Hello-World").Commits(context.Background(), 50, 1)
+  if err != nil {
+    panic(err)
+  }
 
-	fmt.Printf("Pages: %+v\n", resp.Pages)
-	fmt.Printf("Rate: %+v\n\n", resp.Rate)
+  fmt.Printf("Pages: %+v\n", resp.Pages)
+  fmt.Printf("Rate: %+v\n\n", resp.Rate)
 
-	for _, commit := range commits {
-		fmt.Printf("%s\n", commit.SHA)
-	}
+  for _, commit := range commits {
+    fmt.Printf("%s\n", commit.SHA)
+  }
 }
 ```
 
@@ -66,8 +66,8 @@ func main() {
     } `json:"viewer"`
   }{}
 
-	authToken := os.Getenv("GITHUB_TOKEN")
-	client := github.NewClient(authToken)
+  authToken := os.Getenv("GITHUB_TOKEN")
+  client := github.NewClient(authToken)
   g := graphql.New(client)
 
   if err := g.Query(context.Background(), query, nil, &result); err != nil {
@@ -77,6 +77,18 @@ func main() {
   fmt.Printf("Result: %+v\n", result)
 }
 ```
+
+## CI Checks
+
+CI checks run on `pull_request` and `merge_queue` events, but only when the target branch is `main`.
+
+**Why not on push to main?**
+
+This repo uses merge queue, so all PRs land on `main` through the queue — running checks at that point would be redundant.
+
+**Why not on other branches?**
+
+Branches not targeting `main` skip CI checks entirely to reduce unnecessary runner usage.
 
 ## Resources
 
